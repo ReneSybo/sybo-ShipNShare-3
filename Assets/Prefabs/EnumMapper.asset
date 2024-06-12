@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba321df7b111419b9e3a354002f39c95, type: 3}
+  m_Name: EnumMapper
+  m_EditorClassIdentifier: 
+  MissingSprite: {fileID: 0}
+  Entries:
+  - Sprite: {fileID: 21300000, guid: 4245e28e49aaef3419031c0f0da29334, type: 3}
+    ClickableType: 101
+  - Sprite: {fileID: 21300000, guid: cbaa1502153351a4fa010bf49d675864, type: 3}
+    ClickableType: 102
+  - Sprite: {fileID: 21300000, guid: 8622198de0cf7df4da71a7ab6a138624, type: 3}
+    ClickableType: 201
+  - Sprite: {fileID: 21300000, guid: 76857a1ab1d67d44fb6b54ee06dd9ebb, type: 3}
+    ClickableType: 302
