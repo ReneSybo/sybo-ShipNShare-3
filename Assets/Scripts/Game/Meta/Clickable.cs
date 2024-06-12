@@ -15,7 +15,7 @@
 		Ingredient_Sugar = 202,
 		Ingredient_Upper_Bound = 299,
 		
-		Kitchen_Table = 301,
+		Kitchen_Counter = 301,
 		Kitchen_Bowl = 302,
 	}
 }

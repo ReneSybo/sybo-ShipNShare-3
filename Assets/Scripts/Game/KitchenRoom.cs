@@ -7,6 +7,8 @@ namespace BakingGame
 	{
 		Clickable _currentlyHeldTool;
 		Clickable _currentlyHeldIngredient;
+
+		Cake _currentCake;
 		
 		public Camera Camera;
 		public Canvas Canvas;
@@ -18,6 +20,27 @@ namespace BakingGame
 			GameEvent.ItemClicked.AddListener(HandleItemClicked);
 			GameEvent.PickupTool.AddListener(HandleToolPickup);
 			GameEvent.PickupIngredient.AddListener(HandleIngredientPickup);
+			GameEvent.PutDownTool.AddListener(HandlePutDownTool);
+			GameEvent.BowlClicked.AddListener(HandleBowlClicked);
+			
+			_currentCake = new Cake();
+		}
+
+		void HandleBowlClicked()
+		{
+			_currentCake.AddIngredient(_currentlyHeldTool, _currentlyHeldIngredient);
+			_currentlyHeldIngredient = Clickable.None;
+			HeldClickable.SetFilledIngredient(_currentlyHeldTool, _currentlyHeldIngredient);
+		}
+
+		void HandlePutDownTool()
+		{
+			if (_currentlyHeldTool != Clickable.None)
+			{
+				//You put down a tool
+				HeldClickable.SetButtonState(true);
+			}
+			_currentlyHeldTool = Clickable.None;
 		}
 
 		void HandleIngredientPickup(Clickable ingredient)
@@ -29,9 +52,10 @@ namespace BakingGame
 			}
 
 			_currentlyHeldIngredient = ingredient;
+			HeldClickable.SetFilledIngredient(_currentlyHeldTool, _currentlyHeldIngredient);
 		}
 
-		void HandleToolPickup(Clickable item)
+		void HandleToolPickup(Clickable tool)
 		{
 			if (_currentlyHeldIngredient != Clickable.None)
 			{
@@ -39,17 +63,11 @@ namespace BakingGame
 				return;
 			}
 			
-			if (_currentlyHeldTool != Clickable.None)
-			{
-				//You swap tool
-				ClickableItem currentHeldItem = ClickableMap.Instance[_currentlyHeldTool];
-				currentHeldItem.SetButtonState(true);
-			}
-			
-			_currentlyHeldTool = item;
-			ClickableItem newlyHeltItem = ClickableMap.Instance[_currentlyHeldTool];
-			newlyHeltItem.SetButtonState(false);
-			newlyHeltItem.Transform.SetSiblingIndex(int.MaxValue);
+			HandlePutDownTool();
+
+			_currentlyHeldTool = tool;
+			HeldClickable.SetButtonState(false);
+			HeldClickable.Transform.SetSiblingIndex(int.MaxValue);
 		}
 
 		void HandleItemClicked(Clickable item)
@@ -57,20 +75,15 @@ namespace BakingGame
 			ClickableMap.Instance[item].ClickOn(_currentlyHeldTool, _currentlyHeldIngredient);
 		}
 
-		void OnDestroy()
-		{
-			GameEvent.ItemClicked.RemoveListener(HandleItemClicked);
-		}
+		ClickableItem HeldClickable => ClickableMap.Instance[_currentlyHeldTool];
 
 		void Update()
 		{
 			if (_currentlyHeldTool != Clickable.None)
 			{
-				ClickableItem clickableItem = ClickableMap.Instance[_currentlyHeldTool];
-
 				Vector3 screenToWorldPoint = Camera.ScreenToWorldPoint(Input.mousePosition);
 				screenToWorldPoint.z = Canvas.transform.position.z;
-				clickableItem.MoveTo(screenToWorldPoint);
+				HeldClickable.MoveTo(screenToWorldPoint);
 			}
 		}
 	}

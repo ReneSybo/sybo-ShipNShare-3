@@ -13,6 +13,7 @@ namespace BakingGame
 		public Clickable Clickable;
 		public Button Button;
 		public Image Image;
+		public Image FilledImage;
 		
 		void Awake()
 		{
@@ -59,6 +60,12 @@ namespace BakingGame
 		public void MoveTo(Vector3 position)
 		{
 			Transform.position = position;
+		}
+
+		public void SetFilledIngredient(Clickable tool, Clickable ingredient)
+		{
+			FilledImage.enabled = ingredient != Clickable.None;
+			FilledImage.sprite = EnumMap.GetSprite(tool, ingredient);
 		}
 	}
 }
