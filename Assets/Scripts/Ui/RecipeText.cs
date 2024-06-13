@@ -13,7 +13,6 @@ namespace BakingGame
 		{
 			StringBuilder builder = new StringBuilder();
 
-			builder.AppendLine("Recipe:");
 			foreach (IngredientAmount ingredientAmount in recipe.Ingredients)
 			{
 				builder.AppendLine($"{ToLocalizedName(ingredientAmount.Ingredient)}: {GetAmountFormat(ingredientAmount)}");
