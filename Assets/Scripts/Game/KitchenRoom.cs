@@ -36,6 +36,8 @@ namespace BakingGame
 
 		void HandleStartReset()
 		{
+			HandlePutDownTool();
+			
 			ClickableMap.Instance[Clickable.Tool_Teaspoon].ResetPosition();
 			ClickableMap.Instance[Clickable.Tool_Cup_Whole].ResetPosition();
 			ClickableMap.Instance[Clickable.Tool_Cup_Half].ResetPosition();
