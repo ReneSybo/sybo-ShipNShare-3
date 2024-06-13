@@ -46,6 +46,7 @@ namespace BakingGame
 					Debug.Log("BUT IT WAS TOO MUCH!!!");
 					GameEvent.AddedTooMuchIngredient.Dispatch(ingredient);
 					GameEvent.GameLose.Dispatch();
+					return;
 				}
 			}
 			else
@@ -53,7 +54,10 @@ namespace BakingGame
 				Debug.Log("BUT IT WAS NOT NEEDED!!!");
 				GameEvent.AddedWrongIngredient.Dispatch(ingredient);
 				GameEvent.GameLose.Dispatch();
+				return;
 			}
+			
+			GameEvent.AddedIngredient.Dispatch(ingredient);
 		}
 
 		public void TryBake()

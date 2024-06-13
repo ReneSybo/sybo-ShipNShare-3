@@ -10,6 +10,8 @@ namespace BakingGame
 		public GameObject PlayMode;
 		public GameObject GameOver;
 		public GameObject GameWon;
+
+		public static int Difficulty;
 		
 		void Awake()
 		{
@@ -31,6 +33,7 @@ namespace BakingGame
 
 		void HandleGameReset()
 		{
+			Difficulty = 0;
 			OnlyShow(MainMenu);
 		}
 

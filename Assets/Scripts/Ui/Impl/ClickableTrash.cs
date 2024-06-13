@@ -6,7 +6,7 @@ namespace BakingGame
 	{
 		public override void OnClick(Clickable heldTool, Clickable heldIngredient)
 		{
-			if (heldIngredient == Clickable.None)
+			if (heldIngredient == Clickable.None && heldTool == Clickable.Tool_Hand)
 			{
 				//Clicked trash with empty hands
 				//Easteregg when??
@@ -14,8 +14,11 @@ namespace BakingGame
 				GameEvent.PickupIngredient.Dispatch(Clickable.Ingredient_Trash);
 				return;
 			}
-			
-			GameEvent.TrashClicked.Dispatch();
+
+			if (heldIngredient != Clickable.None)
+			{
+				GameEvent.TrashClicked.Dispatch(heldIngredient);
+			}
 		}
 	}
 }

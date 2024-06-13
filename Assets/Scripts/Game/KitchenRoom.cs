@@ -60,7 +60,7 @@ namespace BakingGame
 			_currentCake.TryBake();
 		}
 
-		void HandleTrashClicked()
+		void HandleTrashClicked(Clickable item)
 		{
 			_currentlyHeldIngredient = Clickable.None;
 			HeldClickable.SetFilledIngredient(_currentlyHeldTool, _currentlyHeldIngredient);

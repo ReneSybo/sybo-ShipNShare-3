@@ -21,7 +21,7 @@ namespace BakingGame
 			Textfield.text = builder.ToString();
 		}
 
-		string ToLocalizedName(Clickable ingredient)
+		public static string ToLocalizedName(Clickable ingredient)
 		{
 			switch (ingredient)
 			{
