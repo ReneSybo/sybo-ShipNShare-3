@@ -10,6 +10,7 @@ namespace BakingGame
 
 		Cake _currentCake;
 		
+		public RecipeMap RecipeMap;
 		public Camera Camera;
 		public Canvas Canvas;
 		
@@ -24,6 +25,7 @@ namespace BakingGame
 			GameEvent.BowlClicked.AddListener(HandleBowlClicked);
 			
 			_currentCake = new Cake();
+			_currentCake.SetRecipe(RecipeMap.GetRandomRecipe());
 		}
 
 		void HandleBowlClicked()

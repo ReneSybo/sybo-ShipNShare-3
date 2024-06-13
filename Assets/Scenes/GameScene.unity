@@ -1097,6 +1097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b403139c9e41e0b848b9f9b530cdeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RecipeMap: {fileID: 11400000, guid: 145c9b25506dcc749b79543f13388d13, type: 2}
   Camera: {fileID: 963194227}
   Canvas: {fileID: 326752249}
 --- !u!4 &1346202134
@@ -1341,7 +1342,7 @@ PrefabInstance:
     - target: {fileID: 1819533291214931809, guid: 7aa031f4593c634498913b8239ed7ce0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: bccc3e04adc09e840b8d130edadb1bbf, type: 3}
+      objectReference: {fileID: 21300000, guid: c80383db7f71c6c409413ef00b4cde3a, type: 3}
     - target: {fileID: 3583185477962917581, guid: 7aa031f4593c634498913b8239ed7ce0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

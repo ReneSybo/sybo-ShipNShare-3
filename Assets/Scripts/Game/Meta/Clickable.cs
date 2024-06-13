@@ -9,6 +9,7 @@
 		Tool_Cup_Half = 102,
 		Tool_Cup_Quarter = 103,
 		Tool_Hand = 104,
+		Tool_Teaspoon = 105,
 		Tool_Upper_Bound = 199,
 		
 		Ingredient_Lower_Bound = 200,
