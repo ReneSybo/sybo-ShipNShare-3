@@ -106,6 +106,7 @@ namespace BakingGame
 
 			_currentlyHeldIngredient = ingredient;
 			HeldClickable.SetFilledIngredient(_currentlyHeldTool, _currentlyHeldIngredient);
+			GameEvent.ActuallyPickupIngredient.Dispatch(_currentlyHeldIngredient);
 		}
 
 		void HandleToolPickup(Clickable tool)

@@ -26,7 +26,7 @@ namespace BakingGame
 			GameEvent.AddedTrash.AddListener(() => SetText("I know your cake is trash.. But really?"));
 			GameEvent.TrashClicked.AddListener(HandleTrashedItem);
 			GameEvent.PickupTool.AddListener(HandlePickupTool);
-			GameEvent.PickupIngredient.AddListener(HandlePickupIngredients);
+			GameEvent.ActuallyPickupIngredient.AddListener(HandlePickupIngredients);
 			GameEvent.AddedIngredient.AddListener(HandleAddedIngredients);
 			GameEvent.GameStart.AddListener(() => SetText("Okay fine, let's see if you can handle the pressure"));
 			

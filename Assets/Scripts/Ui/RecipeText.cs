@@ -1,29 +1,23 @@
-﻿using System;
-using System.Text;
-using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace BakingGame
 {
 	public class RecipeText : MonoBehaviour
 	{
-		public TMP_Text[] Textfields;
-		public GameObject[] TextEntries;
+		public RecipeEntry[] TextEntries;
 
 		public void SetRecipeText(Recipe recipe)
 		{
-			StringBuilder builder = new StringBuilder();
-
 			for (int i = 0; i < TextEntries.Length; i++)
 			{
-				TextEntries[i].SetActive(false);
+				TextEntries[i].gameObject.SetActive(false);
 			}
 
 			for (int i = 0; i < recipe.Ingredients.Length; i++)
 			{
 				IngredientAmount ingredientAmount = recipe.Ingredients[i];
-				TextEntries[i].SetActive(true);
-				Textfields[i].text = $"{ToLocalizedName(ingredientAmount.Ingredient)}: {GetAmountFormat(ingredientAmount)}";
+				TextEntries[i].gameObject.SetActive(true);
+				TextEntries[i].SetText($"{ToLocalizedName(ingredientAmount.Ingredient)}: {GetAmountFormat(ingredientAmount)}");
 			}
 		}
 
