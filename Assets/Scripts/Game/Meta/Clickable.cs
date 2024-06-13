@@ -26,5 +26,6 @@
 		
 		Kitchen_Counter = 301,
 		Kitchen_Bowl = 302,
+		Kitchen_Trash = 303,
 	}
 }
