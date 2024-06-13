@@ -32,6 +32,11 @@ namespace BakingGame
 		{
 			return clickable == Clickable.Ingredient_Milk || clickable == Clickable.Ingredient_Oil;
 		}
+		
+		public const int AmountWhole = 100;
+		public const int AmountHalf = 50;
+		public const int AmountQuat = 25;
+		public const int AmountTeaspoon = 5;
 
 		public static int ToolToQuantity(Clickable clickable, Clickable ingredient)
 		{
@@ -45,23 +50,12 @@ namespace BakingGame
 				return 1;
 			}
 			
-			if (IsLiquid(ingredient))
-			{
-				switch (clickable)
-				{
-					case Clickable.Tool_Cup_Whole: return 60;
-					case Clickable.Tool_Cup_Half: return 30;
-					case Clickable.Tool_Cup_Quarter: return 15;
-					case Clickable.Tool_Teaspoon: return 5;
-				}
-			}
-			
 			switch (clickable)
 			{
-				case Clickable.Tool_Cup_Whole: return 100;
-				case Clickable.Tool_Cup_Half: return 50;
-				case Clickable.Tool_Cup_Quarter: return 25;
-				case Clickable.Tool_Teaspoon: return 5;
+				case Clickable.Tool_Cup_Whole: return AmountWhole;
+				case Clickable.Tool_Cup_Half: return AmountHalf;
+				case Clickable.Tool_Cup_Quarter: return AmountQuat;
+				case Clickable.Tool_Teaspoon: return AmountTeaspoon;
 			}
 
 			if (clickable == Clickable.Ingredient_Trash)

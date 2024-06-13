@@ -63,12 +63,23 @@ namespace BakingGame
 				return $"{amount} stick";
 			}
 
-			if (ingredient == Clickable.Ingredient_Milk || ingredient == Clickable.Ingredient_Oil)
+			if (amount % EnumUtils.AmountWhole == 0)
 			{
-				return $"{amount} mL";
+				if (amount > 1)
+				{
+					return $"{amount} cup";
+				}
+
+				return $"{amount} cups";
 			}
 
-			return $"{amount} g";
+			float cups = amount / 100f;
+			if (amount % EnumUtils.AmountHalf == 0)
+			{
+				return $"{cups:0.0} cups";
+			}
+			
+			return $"{cups:0.00} cups";
 		}
 	}
 }
