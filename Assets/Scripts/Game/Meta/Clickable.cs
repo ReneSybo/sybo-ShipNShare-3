@@ -16,6 +16,12 @@
 		Ingredient_Flour = 201,
 		Ingredient_Sugar = 202,
 		Ingredient_Eggs = 203,
+		Ingredient_Milk = 204,
+		Ingredient_Oil = 205,
+		Ingredient_Cocoa = 206,
+		Ingredient_Vanilla = 207,
+		Ingredient_Butter = 208,
+		Ingredient_BakingSoda = 209,
 		Ingredient_Upper_Bound = 299,
 		
 		Kitchen_Counter = 301,
