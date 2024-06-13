@@ -1,3 +1,4 @@
+using System;
 using Misc;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,11 +16,18 @@ namespace BakingGame
 		public Image Image;
 		public CanvasGroup CanvasGroup;
 		public Image FilledImage;
+
+		Vector3 _initialPosition;
 		
 		void Awake()
 		{
 			Button.onClick.AddListener(HandleClicked);
 			ClickableMap.Instance.Register(this);
+		}
+
+		void Start()
+		{
+			_initialPosition = Transform.position;
 		}
 
 		public void ClickOn(Clickable heldTool, Clickable heldIngredient)
@@ -68,6 +76,11 @@ namespace BakingGame
 		{
 			FilledImage.enabled = ingredient != Clickable.None;
 			FilledImage.sprite = EnumMap.GetSprite(tool, ingredient);
+		}
+
+		public void ResetPosition()
+		{
+			Transform.position = _initialPosition;
 		}
 	}
 }

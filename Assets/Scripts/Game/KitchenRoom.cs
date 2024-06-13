@@ -1,6 +1,7 @@
 ﻿using Misc;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace BakingGame
 {
@@ -11,6 +12,7 @@ namespace BakingGame
 
 		Cake _currentCake;
 		
+		public Button BakeButton;
 		public RecipeMap RecipeMap;
 		public Camera Camera;
 		public Canvas Canvas;
@@ -19,19 +21,41 @@ namespace BakingGame
 
 		void Awake()
 		{
-			_currentlyHeldTool = Clickable.Tool_Hand;
-			_currentlyHeldIngredient = Clickable.None;
 			GameEvent.ItemClicked.AddListener(HandleItemClicked);
 			GameEvent.PickupTool.AddListener(HandleToolPickup);
 			GameEvent.PickupIngredient.AddListener(HandleIngredientPickup);
 			GameEvent.PutDownTool.AddListener(HandlePutDownTool);
 			GameEvent.BowlClicked.AddListener(HandleBowlClicked);
 			GameEvent.TrashClicked.AddListener(HandleTrashClicked);
+			GameEvent.GameStart.AddListener(HandleStartGame);
+			GameEvent.GameReset.AddListener(HandleStartReset);
+			BakeButton.onClick.AddListener(HandleBakeClicked);
 
+			HandleStartGame();
+		}
+
+		void HandleStartReset()
+		{
+			ClickableMap.Instance[Clickable.Tool_Teaspoon].ResetPosition();
+			ClickableMap.Instance[Clickable.Tool_Cup_Whole].ResetPosition();
+			ClickableMap.Instance[Clickable.Tool_Cup_Half].ResetPosition();
+			ClickableMap.Instance[Clickable.Tool_Cup_Quarter].ResetPosition();
+		}
+
+		void HandleStartGame()
+		{
 			Recipe randomRecipe = RecipeMap.GenerateRandomRecipe();
 			_currentCake = new Cake();
 			_currentCake.SetRecipe(randomRecipe);
 			RecipeText.SetRecipeText(randomRecipe);
+
+			_currentlyHeldTool = Clickable.Tool_Hand;
+			_currentlyHeldIngredient = Clickable.None;
+		}
+
+		void HandleBakeClicked()
+		{
+			_currentCake.TryBake();
 		}
 
 		void HandleTrashClicked()

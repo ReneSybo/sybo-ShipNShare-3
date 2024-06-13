@@ -5,7 +5,6 @@ namespace Misc
 {
 	public class GameEvent
 	{
-		public static GameEvent GameStarted = new GameEvent();
 		public static GameEvent<Clickable> ItemClicked = new GameEvent<Clickable>();
 		public static GameEvent<Clickable> PickupTool = new GameEvent<Clickable>();
 		public static GameEvent<Clickable> PickupIngredient = new GameEvent<Clickable>();
@@ -16,6 +15,13 @@ namespace Misc
 		public static GameEvent PutDownTool = new GameEvent();
 		public static GameEvent AddedTrash = new GameEvent();
 		public static GameEvent PickupTrash = new GameEvent();
+		public static GameEvent CakeWrongBake = new GameEvent();
+		public static GameEvent CakeCorrectBake = new GameEvent();
+		
+		public static GameEvent GameReset = new GameEvent();
+		public static GameEvent GameStart = new GameEvent();
+		public static GameEvent GameWin = new GameEvent();
+		public static GameEvent GameLose = new GameEvent();
 
 		public event Action _callbacks;
 

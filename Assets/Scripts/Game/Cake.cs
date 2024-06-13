@@ -45,13 +45,31 @@ namespace BakingGame
 				{
 					Debug.Log("BUT IT WAS TOO MUCH!!!");
 					GameEvent.AddedTooMuchIngredient.Dispatch(ingredient);
+					GameEvent.GameLose.Dispatch();
 				}
 			}
 			else
 			{
 				Debug.Log("BUT IT WAS NOT NEEDED!!!");
 				GameEvent.AddedWrongIngredient.Dispatch(ingredient);
+				GameEvent.GameLose.Dispatch();
 			}
+		}
+
+		public void TryBake()
+		{
+			foreach (var kvPair in _recipeRequirements)
+			{
+				if (kvPair.Value != 0)
+				{
+					GameEvent.CakeWrongBake.Dispatch();
+					GameEvent.GameLose.Dispatch();
+					return;
+				}
+			}
+			
+			GameEvent.CakeCorrectBake.Dispatch();
+			GameEvent.GameWin.Dispatch();
 		}
 	}
 }
