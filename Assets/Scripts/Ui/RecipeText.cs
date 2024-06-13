@@ -7,18 +7,24 @@ namespace BakingGame
 {
 	public class RecipeText : MonoBehaviour
 	{
-		public TMP_Text Textfield;
+		public TMP_Text[] Textfields;
+		public GameObject[] TextEntries;
 
 		public void SetRecipeText(Recipe recipe)
 		{
 			StringBuilder builder = new StringBuilder();
 
-			foreach (IngredientAmount ingredientAmount in recipe.Ingredients)
+			for (int i = 0; i < TextEntries.Length; i++)
 			{
-				builder.AppendLine($"{ToLocalizedName(ingredientAmount.Ingredient)}: {GetAmountFormat(ingredientAmount)}");
+				TextEntries[i].SetActive(false);
 			}
-			
-			Textfield.text = builder.ToString();
+
+			for (int i = 0; i < recipe.Ingredients.Length; i++)
+			{
+				IngredientAmount ingredientAmount = recipe.Ingredients[i];
+				TextEntries[i].SetActive(true);
+				Textfields[i].text = $"{ToLocalizedName(ingredientAmount.Ingredient)}: {GetAmountFormat(ingredientAmount)}";
+			}
 		}
 
 		public static string ToLocalizedName(Clickable ingredient)
