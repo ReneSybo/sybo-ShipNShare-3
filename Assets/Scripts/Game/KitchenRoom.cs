@@ -15,7 +15,7 @@ namespace BakingGame
 		public Camera Camera;
 		public Canvas Canvas;
 		public RecipeText RecipeText;
-		Vector3 _delta;
+		Vector3 _toolDelta;
 
 		void Awake()
 		{
@@ -58,6 +58,8 @@ namespace BakingGame
 			_currentlyHeldTool = Clickable.Tool_Hand;
 			HeldClickable.SetButtonState(false);
 			HeldClickable.Transform.SetSiblingIndex(int.MaxValue);
+			
+			_toolDelta = Vector3.zero;
 		}
 
 		void HandleIngredientPickup(Clickable ingredient)
@@ -100,7 +102,7 @@ namespace BakingGame
 			Vector3 mouseClickPosition = Camera.ScreenToWorldPoint(Input.mousePosition);
 			Vector3 heldPosition = HeldClickable.Transform.position;
 
-			_delta = mouseClickPosition - heldPosition;
+			_toolDelta = mouseClickPosition - heldPosition;
 		}
 
 		void HandleItemClicked(Clickable item)
@@ -115,7 +117,7 @@ namespace BakingGame
 			if (_currentlyHeldTool != Clickable.None)
 			{
 				Vector3 screenToWorldPoint = Camera.ScreenToWorldPoint(Input.mousePosition);
-				screenToWorldPoint -= _delta;
+				screenToWorldPoint -= _toolDelta;
 				screenToWorldPoint.z = Canvas.transform.position.z;
 				HeldClickable.MoveTo(screenToWorldPoint);
 			}
