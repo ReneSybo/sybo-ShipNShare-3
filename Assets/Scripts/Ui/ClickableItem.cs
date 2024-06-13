@@ -13,6 +13,7 @@ namespace BakingGame
 		public Clickable Clickable;
 		public Button Button;
 		public Image Image;
+		public CanvasGroup CanvasGroup;
 		public Image FilledImage;
 		
 		void Awake()
@@ -36,7 +37,8 @@ namespace BakingGame
 
 		public void SetButtonState(bool enabled)
 		{
-			Image.raycastTarget = enabled;
+			CanvasGroup.interactable = enabled;
+			CanvasGroup.blocksRaycasts = enabled;
 		}
 
 		void OnDestroy()

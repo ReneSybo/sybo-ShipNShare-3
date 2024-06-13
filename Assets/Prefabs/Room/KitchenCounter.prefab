@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 290671525558174904, guid: 6ca6f18515d662a4c820b82482313c08, type: 3}
@@ -18,6 +19,22 @@ PrefabInstance:
     - target: {fileID: 4063258126595497771, guid: 6ca6f18515d662a4c820b82482313c08, type: 3}
       propertyPath: m_Name
       value: KitchenCounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225430053721740851, guid: 6ca6f18515d662a4c820b82482313c08, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 44.693
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225430053721740851, guid: 6ca6f18515d662a4c820b82482313c08, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 9.4868
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225430053721740851, guid: 6ca6f18515d662a4c820b82482313c08, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -21.149
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225430053721740851, guid: 6ca6f18515d662a4c820b82482313c08, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.822
       objectReference: {fileID: 0}
     - target: {fileID: 5249760499587068562, guid: 6ca6f18515d662a4c820b82482313c08, type: 3}
       propertyPath: m_Pivot.x
@@ -102,8 +119,14 @@ PrefabInstance:
     - target: {fileID: 6926723738059658046, guid: 6ca6f18515d662a4c820b82482313c08, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 812f156ff10d1224b917f5745361be1a, type: 3}
+      objectReference: {fileID: 21300000, guid: 32a678f9bb5783740bad9a16bb040d8c, type: 3}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4063258126595497771, guid: 6ca6f18515d662a4c820b82482313c08, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5599457497153881799}
   m_SourcePrefab: {fileID: 100100000, guid: 6ca6f18515d662a4c820b82482313c08, type: 3}
 --- !u!1 &5841440242146694993 stripped
 GameObject:
