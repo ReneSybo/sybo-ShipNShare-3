@@ -30,7 +30,7 @@ namespace BakingGame
 			
 			if (_recipeRequirements.TryGetValue(ingredient, out int remainingRequirement))
 			{
-				int changeAmount = EnumUtils.ToolToQuantity(tool);
+				int changeAmount = EnumUtils.ToolToQuantity(tool, ingredient);
 				remainingRequirement -= changeAmount;
 				_recipeRequirements[ingredient] = remainingRequirement;
 

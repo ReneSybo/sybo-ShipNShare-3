@@ -27,21 +27,41 @@ namespace BakingGame
 		{
 			return clickable == Clickable.Ingredient_Eggs;
 		}
+		
+		public static bool IsLiquid(Clickable clickable)
+		{
+			return clickable == Clickable.Ingredient_Milk || clickable == Clickable.Ingredient_Oil;
+		}
 
-		public static int ToolToQuantity(Clickable clickable)
+		public static int ToolToQuantity(Clickable clickable, Clickable ingredient)
 		{
 			if (!IsTool(clickable))
 			{
 				return 0;
 			}
 
+			if (CanPickupWithHands(ingredient))
+			{
+				return 1;
+			}
+			
+			if (IsLiquid(ingredient))
+			{
+				switch (clickable)
+				{
+					case Clickable.Tool_Cup_Whole: return 60;
+					case Clickable.Tool_Cup_Half: return 30;
+					case Clickable.Tool_Cup_Quarter: return 15;
+					case Clickable.Tool_Teaspoon: return 5;
+				}
+			}
+			
 			switch (clickable)
 			{
-				case Clickable.Tool_Cup_Whole: return 60;
-				case Clickable.Tool_Cup_Half: return 30;
-				case Clickable.Tool_Cup_Quarter: return 15;
+				case Clickable.Tool_Cup_Whole: return 100;
+				case Clickable.Tool_Cup_Half: return 50;
+				case Clickable.Tool_Cup_Quarter: return 25;
 				case Clickable.Tool_Teaspoon: return 5;
-				case Clickable.Tool_Hand: return 1;
 			}
 
 			return 0;

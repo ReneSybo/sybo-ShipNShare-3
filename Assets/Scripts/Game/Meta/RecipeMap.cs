@@ -51,12 +51,17 @@ namespace BakingGame
 				return Random.Range(1, 4);
 			}
 			
-			if (ingredient == Clickable.Ingredient_Vanilla || ingredient == Clickable.Ingredient_BakingSoda)
+			if (ingredient == Clickable.Ingredient_Cocoa)
 			{
-				return EnumUtils.ToolToQuantity(Clickable.Tool_Teaspoon) * Random.Range(1, 5);
+				return EnumUtils.ToolToQuantity(Clickable.Tool_Teaspoon, ingredient) * Random.Range(1, 15);
 			}
 			
-			return EnumUtils.ToolToQuantity(Clickable.Tool_Cup_Half) * Random.Range(1, 20);
+			if (ingredient == Clickable.Ingredient_Vanilla || ingredient == Clickable.Ingredient_BakingSoda)
+			{
+				return EnumUtils.ToolToQuantity(Clickable.Tool_Teaspoon, ingredient) * Random.Range(1, 5);
+			}
+			
+			return EnumUtils.ToolToQuantity(Clickable.Tool_Teaspoon, ingredient) * Random.Range(3, 82);
 		}
 
 		Clickable GetRandomIngredient(List<Clickable> ingredients)
