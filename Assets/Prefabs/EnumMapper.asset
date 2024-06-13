@@ -14,10 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MissingSprite: {fileID: 0}
   Tools:
-  - Sprite: {fileID: 21300000, guid: 4245e28e49aaef3419031c0f0da29334, type: 3}
+  - Sprite: {fileID: 21300000, guid: 2dfea515382f94344abdaebc6203ee04, type: 3}
     ClickableType: 101
-  - Sprite: {fileID: 21300000, guid: cbaa1502153351a4fa010bf49d675864, type: 3}
+  - Sprite: {fileID: 21300000, guid: a0300e3c7202bc54f9d82f853f7145f1, type: 3}
     ClickableType: 102
+  - Sprite: {fileID: 21300000, guid: 9e68667d07ab77847890e9cd923f55f7, type: 3}
+    ClickableType: 103
+  - Sprite: {fileID: 21300000, guid: 34492bbc2b8841341becec1c85bb35fd, type: 3}
+    ClickableType: 105
   - Sprite: {fileID: 21300000, guid: aa6742066f1697e44bd02ee5f77f7287, type: 3}
     ClickableType: 104
   Ingredients:
@@ -27,11 +31,25 @@ MonoBehaviour:
     ClickableType: 202
   - Sprite: {fileID: 21300000, guid: c80383db7f71c6c409413ef00b4cde3a, type: 3}
     ClickableType: 203
+  - Sprite: {fileID: 21300000, guid: 6e87a4ae4f720b04c860fadf24432b99, type: 3}
+    ClickableType: 204
+  - Sprite: {fileID: 21300000, guid: 5e2fed3df5eff444d989a9434c6a70c0, type: 3}
+    ClickableType: 205
+  - Sprite: {fileID: 21300000, guid: f51b0e8072ff0994f8e0ac1c08f8507a, type: 3}
+    ClickableType: 206
+  - Sprite: {fileID: 21300000, guid: 63e61203d18ae2c4aae6554fd019561c, type: 3}
+    ClickableType: 207
+  - Sprite: {fileID: 21300000, guid: 29b833e3f6f8cd1458fdb9e772f022ab, type: 3}
+    ClickableType: 208
+  - Sprite: {fileID: 21300000, guid: eb73993afa48a3a4181a30edc3404cf9, type: 3}
+    ClickableType: 209
   Room:
-  - Sprite: {fileID: 21300000, guid: 812f156ff10d1224b917f5745361be1a, type: 3}
+  - Sprite: {fileID: 21300000, guid: 32a678f9bb5783740bad9a16bb040d8c, type: 3}
     ClickableType: 301
   - Sprite: {fileID: 21300000, guid: 76857a1ab1d67d44fb6b54ee06dd9ebb, type: 3}
     ClickableType: 302
+  - Sprite: {fileID: 21300000, guid: 740b95bd0f7b0824ba8ae72b56cf2cce, type: 3}
+    ClickableType: 303
   Filled:
   - Sprite: {fileID: 21300000, guid: 00a23741c7ccf27419d1d02afdd4325d, type: 3}
     RequiredTool: 101
