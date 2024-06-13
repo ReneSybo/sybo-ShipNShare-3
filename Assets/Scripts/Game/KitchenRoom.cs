@@ -15,7 +15,7 @@ namespace BakingGame
 		
 		void Awake()
 		{
-			_currentlyHeldTool = Clickable.None;
+			_currentlyHeldTool = Clickable.Tool_Hand;
 			_currentlyHeldIngredient = Clickable.None;
 			GameEvent.ItemClicked.AddListener(HandleItemClicked);
 			GameEvent.PickupTool.AddListener(HandleToolPickup);
@@ -35,19 +35,30 @@ namespace BakingGame
 
 		void HandlePutDownTool()
 		{
-			if (_currentlyHeldTool != Clickable.None)
+			if (_currentlyHeldTool != Clickable.Tool_Hand)
 			{
 				//You put down a tool
 				HeldClickable.SetButtonState(true);
 			}
-			_currentlyHeldTool = Clickable.None;
+
+			_currentlyHeldTool = Clickable.Tool_Hand;
+			HeldClickable.SetButtonState(false);
+			HeldClickable.Transform.SetSiblingIndex(int.MaxValue);
 		}
 
 		void HandleIngredientPickup(Clickable ingredient)
 		{
 			if (_currentlyHeldIngredient != Clickable.None)
 			{
-				//You tried picking Flour, when already carrying Sugar!!!!???!!
+				//You tried picking Flour, when already carrying something!!!!???!!
+				return;
+			}
+
+			bool canPickupWithHands = EnumUtils.CanPickupWithHands(ingredient);
+			bool isUsingHands = _currentlyHeldTool == Clickable.Tool_Hand;
+			if (canPickupWithHands != isUsingHands)
+			{
+				//You tried picking Flour with your hands!!?!?!
 				return;
 			}
 
@@ -62,8 +73,11 @@ namespace BakingGame
 				//You tried picking up a tool, while you are carrying Flour!???!?!?!?
 				return;
 			}
-			
-			HandlePutDownTool();
+
+			if (_currentlyHeldTool != Clickable.Tool_Hand)
+			{
+				HandlePutDownTool();
+			}
 
 			_currentlyHeldTool = tool;
 			HeldClickable.SetButtonState(false);

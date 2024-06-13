@@ -19,5 +19,10 @@
 			int asIntValue = (int)clickable;
 			return asIntValue > LowestIngredient && asIntValue < HighestIngredient;
 		}
+		
+		public static bool CanPickupWithHands(Clickable clickable)
+		{
+			return clickable == Clickable.Ingredient_Eggs;
+		}
 	}
 }

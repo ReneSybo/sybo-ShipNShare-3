@@ -18,9 +18,15 @@ MonoBehaviour:
     ClickableType: 101
   - Sprite: {fileID: 21300000, guid: cbaa1502153351a4fa010bf49d675864, type: 3}
     ClickableType: 102
+  - Sprite: {fileID: 21300000, guid: aa6742066f1697e44bd02ee5f77f7287, type: 3}
+    ClickableType: 104
   Ingredients:
   - Sprite: {fileID: 21300000, guid: 8622198de0cf7df4da71a7ab6a138624, type: 3}
     ClickableType: 201
+  - Sprite: {fileID: 21300000, guid: bccc3e04adc09e840b8d130edadb1bbf, type: 3}
+    ClickableType: 202
+  - Sprite: {fileID: 21300000, guid: c80383db7f71c6c409413ef00b4cde3a, type: 3}
+    ClickableType: 203
   Room:
   - Sprite: {fileID: 21300000, guid: 812f156ff10d1224b917f5745361be1a, type: 3}
     ClickableType: 301
@@ -33,3 +39,12 @@ MonoBehaviour:
   - Sprite: {fileID: 21300000, guid: a0430f9e95f06ef4da8fb332d09ddfcf, type: 3}
     RequiredTool: 102
     RequiredIngredient: 201
+  - Sprite: {fileID: 21300000, guid: 827faf99d67f31447bb8ee312c2e62a8, type: 3}
+    RequiredTool: 101
+    RequiredIngredient: 202
+  - Sprite: {fileID: 21300000, guid: 87cef8780d47bed4ca7d81fd7d1ac112, type: 3}
+    RequiredTool: 102
+    RequiredIngredient: 202
+  - Sprite: {fileID: 21300000, guid: d01b9705afc1ec7458766f5e2656347d, type: 3}
+    RequiredTool: 104
+    RequiredIngredient: 203
