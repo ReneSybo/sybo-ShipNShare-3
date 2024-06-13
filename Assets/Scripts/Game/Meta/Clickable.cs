@@ -22,6 +22,7 @@
 		Ingredient_Vanilla = 207,
 		Ingredient_Butter = 208,
 		Ingredient_BakingSoda = 209,
+		Ingredient_Trash = 210,
 		Ingredient_Upper_Bound = 299,
 		
 		Kitchen_Counter = 301,

@@ -27,6 +27,13 @@ namespace BakingGame
 		public void AddIngredient(Clickable tool, Clickable ingredient)
 		{
 			Debug.Log($"Used {tool} to add {ingredient}");
+
+			if (ingredient == Clickable.Ingredient_Trash)
+			{
+				//Added trash to the cake!???!?!!?
+				GameEvent.AddedTrash.Dispatch();
+				return;
+			}
 			
 			if (_recipeRequirements.TryGetValue(ingredient, out int remainingRequirement))
 			{

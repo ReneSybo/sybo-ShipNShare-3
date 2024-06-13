@@ -25,7 +25,7 @@ namespace BakingGame
 		
 		public static bool CanPickupWithHands(Clickable clickable)
 		{
-			return clickable == Clickable.Ingredient_Eggs;
+			return clickable == Clickable.Ingredient_Eggs || clickable == Clickable.Ingredient_Butter || clickable == Clickable.Ingredient_Trash;
 		}
 		
 		public static bool IsLiquid(Clickable clickable)
@@ -62,6 +62,11 @@ namespace BakingGame
 				case Clickable.Tool_Cup_Half: return 50;
 				case Clickable.Tool_Cup_Quarter: return 25;
 				case Clickable.Tool_Teaspoon: return 5;
+			}
+
+			if (clickable == Clickable.Ingredient_Trash)
+			{
+				return 1;
 			}
 
 			return 0;
