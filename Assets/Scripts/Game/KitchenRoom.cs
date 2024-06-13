@@ -1,4 +1,5 @@
 ﻿using Misc;
+using TMPro;
 using UnityEngine;
 
 namespace BakingGame
@@ -13,6 +14,7 @@ namespace BakingGame
 		public RecipeMap RecipeMap;
 		public Camera Camera;
 		public Canvas Canvas;
+		public RecipeText RecipeText;
 		
 		void Awake()
 		{
@@ -23,9 +25,11 @@ namespace BakingGame
 			GameEvent.PickupIngredient.AddListener(HandleIngredientPickup);
 			GameEvent.PutDownTool.AddListener(HandlePutDownTool);
 			GameEvent.BowlClicked.AddListener(HandleBowlClicked);
-			
+
+			Recipe randomRecipe = RecipeMap.GenerateRandomRecipe();
 			_currentCake = new Cake();
-			_currentCake.SetRecipe(RecipeMap.GetRandomRecipe());
+			_currentCake.SetRecipe(randomRecipe);
+			RecipeText.SetRecipeText(randomRecipe);
 		}
 
 		void HandleBowlClicked()
