@@ -80,7 +80,10 @@ namespace BakingGame
 
 		public void ResetPosition()
 		{
-			Transform.position = _initialPosition;
+			if (_initialPosition != Vector3.zero)
+			{
+				Transform.position = _initialPosition;
+			}
 		}
 	}
 }

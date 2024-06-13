@@ -43,6 +43,8 @@ namespace BakingGame
 					return "Butter";
 				case Clickable.Ingredient_BakingSoda:
 					return "Baking Powder";
+				case Clickable.Ingredient_Trash:
+					return "Trash";
 			}
 
 			return string.Empty;
@@ -62,17 +64,17 @@ namespace BakingGame
 				return $"{amount} stick";
 			}
 
+			float cups = amount / 100f;
 			if (amount % EnumUtils.AmountWhole == 0)
 			{
 				if (amount > 1)
 				{
-					return $"{amount} cup";
+					return $"{cups:0} cup";
 				}
 
-				return $"{amount} cups";
+				return $"{cups:0} cups";
 			}
 
-			float cups = amount / 100f;
 			if (amount % EnumUtils.AmountHalf == 0)
 			{
 				return $"{cups:0.0} cups";

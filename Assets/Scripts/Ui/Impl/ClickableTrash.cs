@@ -10,7 +10,6 @@ namespace BakingGame
 			{
 				//Clicked trash with empty hands
 				//Easteregg when??
-				GameEvent.PickupTrash.Dispatch();
 				GameEvent.PickupIngredient.Dispatch(Clickable.Ingredient_Trash);
 				return;
 			}

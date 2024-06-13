@@ -16,21 +16,52 @@ namespace BakingGame
 		bool _increasing = false;
 		float _currentAlpha = 0f;
 
+		bool _inTutorial = false;
+		int _tutorialIndex = 0;
+		bool _canTutorial;
+
+		const int TutorialIntro = 1;
+		const int TutorialRecipe = 2;
+		const int TutorialTools = 3;
+		const int TutorialTellDone = 4;
+		const int TutorialFinal = 5;
+
 		void Awake()
 		{
+			_canTutorial = true;
+			_currentAlpha = 0f;
 			Textfield.text = "";
 			_increasing = false;
 			_showTimeRemaining = 0f;
+			CanvasGroup.alpha = _currentAlpha;
 			
-			GameEvent.PickupTrash.AddListener(() => SetText("Why.. Why You put your hands in there?"));
-			GameEvent.AddedTrash.AddListener(() => SetText("I know your cake is trash.. But really?"));
 			GameEvent.TrashClicked.AddListener(HandleTrashedItem);
 			GameEvent.PickupTool.AddListener(HandlePickupTool);
 			GameEvent.ActuallyPickupIngredient.AddListener(HandlePickupIngredients);
 			GameEvent.AddedIngredient.AddListener(HandleAddedIngredients);
-			GameEvent.GameStart.AddListener(() => SetText("Okay fine, let's see if you can handle the pressure"));
+			
+			GameEvent.GameStart.AddListener(HandleGameStart);
+			GameEvent.GameReset.AddListener(HandleGameReset);
 			
 			_increasing = false;
+		}
+
+		void HandleGameReset()
+		{
+			_canTutorial = true;
+		}
+
+		void HandleGameStart()
+		{
+			_currentAlpha = 0f;
+			Textfield.text = "";
+			_increasing = false;
+			_showTimeRemaining = 0f;
+			CanvasGroup.alpha = _currentAlpha;
+			
+			_inTutorial = _canTutorial;
+			_tutorialIndex = 0;
+			_canTutorial = false;
 		}
 
 		bool ShouldShow
@@ -53,15 +84,32 @@ namespace BakingGame
 
 		void HandleAddedIngredients(Clickable ingredient)
 		{
-			if (ingredient == Clickable.Ingredient_Trash)
-			{
-				return;
-			}
-			
 			if (ShouldShow)
 			{
-				SetText(RandomIngredientAdd(ingredient));
+				if (ingredient == Clickable.Ingredient_Trash)
+				{
+					SetText(RandomTrashAdd(ingredient));
+				}
+				else
+				{
+					SetText(RandomIngredientAdd(ingredient));
+				}
 			}
+		}
+
+		string RandomTrashAdd(Clickable ingredient)
+		{
+			string localizedName = RecipeText.ToLocalizedName(ingredient);
+			string[] randomResponses = 
+			{
+				"Well, that's one way to ruin it beyond repair?",
+				"Just when I thought it couldn't get worse",
+				"Congratulations, you've created the world's first garbage cake",
+				"Why stop there? Just throw the whole trash can in",
+				$"Wow, just wow. You’re actually adding {localizedName}?",
+			};
+
+			return RandomResponseFrom(randomResponses);
 		}
 
 		string RandomIngredientAdd(Clickable ingredient)
@@ -82,11 +130,6 @@ namespace BakingGame
 
 		void HandlePickupIngredients(Clickable ingredient)
 		{
-			if (ingredient == Clickable.Ingredient_Trash)
-			{
-				return;
-			}
-			
 			if (!ShouldShow)
 			{
 				return;
@@ -124,7 +167,24 @@ namespace BakingGame
 				case Clickable.Ingredient_BakingSoda:
 					SetText(RandomPickupBakingPowder(localizedName));
 					break;
+				case Clickable.Ingredient_Trash:
+					SetText(RandomPickupTrash(localizedName));
+					break;
 			}
+		}
+
+		string RandomPickupTrash(string localizedName)
+		{
+			string[] randomResponses = 
+			{
+				$"Seriously? You're picking up {localizedName} now",
+				"Oh great, you’ve resorted to dumpster diving",
+				"Congratulations, you’ve officially lost it",
+				"Wonderful, just add garbage to your garbage cake",
+				$"{localizedName}, huh? Finally, something that matches your skills",
+			};
+
+			return RandomResponseFrom(randomResponses);
 		}
 
 		string RandomPickupBakingOil(string localizedName)
@@ -324,9 +384,11 @@ namespace BakingGame
 		{
 			string[] randomResponses = 
 			{
-				"Sure, throw that away again", 
-				"No it's fine. I'll buy more later",
-				"What has the environment ever done for us anyway?",
+				"Perfect, just throw it all away. That’ll fix everything", 
+				"Finally, something you’re good at: wasting food",
+				"Out with the trash, just like your baking skills",
+				"Getting rid of evidence, are we?",
+				"Why not just throw the whole cake in there while you’re at it?",
 			};
 
 			return RandomResponseFrom(randomResponses);
@@ -362,7 +424,35 @@ namespace BakingGame
 			if (_showTimeRemaining <= 0)
 			{
 				_increasing = false;
+				TryShowTutorial();
 			}
+		}
+
+		void TryShowTutorial()
+		{
+			if (_inTutorial)
+			{
+				_tutorialIndex++;
+				if (_tutorialIndex <= TutorialFinal)
+				{
+					SetText(TextFromTutorialIndex());
+					_showTimeRemaining *= 2;
+				}
+			}
+		}
+
+		string TextFromTutorialIndex()
+		{
+			switch (_tutorialIndex)
+			{
+				case TutorialIntro: return "Wait, you are supposed to be a baker?";
+				case TutorialRecipe: return "Fine.. Check the recipe on your left";
+				case TutorialTools: return "You do know how these cup sizes work, yeah?";
+				case TutorialTellDone: return "Let me know when you are done";
+				case TutorialFinal: return "Good luck, I guess..";
+			}
+
+			return string.Empty;
 		}
 	}
 }

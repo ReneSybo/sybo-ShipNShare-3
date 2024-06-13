@@ -7,8 +7,8 @@ namespace BakingGame
 {
 	public class KitchenRoom : MonoBehaviour
 	{
-		Clickable _currentlyHeldTool;
-		Clickable _currentlyHeldIngredient;
+		Clickable _currentlyHeldTool = Clickable.Tool_Hand;
+		Clickable _currentlyHeldIngredient = Clickable.None;
 
 		Cake _currentCake;
 		
@@ -46,6 +46,12 @@ namespace BakingGame
 
 		void HandleStartGame()
 		{
+			HandlePutDownTool();
+			ClickableMap.Instance[Clickable.Tool_Teaspoon].ResetPosition();
+			ClickableMap.Instance[Clickable.Tool_Cup_Whole].ResetPosition();
+			ClickableMap.Instance[Clickable.Tool_Cup_Half].ResetPosition();
+			ClickableMap.Instance[Clickable.Tool_Cup_Quarter].ResetPosition();
+			
 			Recipe randomRecipe = RecipeMap.GenerateRandomRecipe();
 			_currentCake = new Cake();
 			_currentCake.SetRecipe(randomRecipe);

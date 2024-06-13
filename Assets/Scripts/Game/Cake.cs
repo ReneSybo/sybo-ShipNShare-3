@@ -31,7 +31,7 @@ namespace BakingGame
 			if (ingredient == Clickable.Ingredient_Trash)
 			{
 				//Added trash to the cake!???!?!!?
-				GameEvent.AddedTrash.Dispatch();
+				GameEvent.AddedIngredient.Dispatch(ingredient);
 				return;
 			}
 			

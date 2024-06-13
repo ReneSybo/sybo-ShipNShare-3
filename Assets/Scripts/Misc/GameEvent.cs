@@ -14,9 +14,7 @@ namespace Misc
 		public static GameEvent BowlClicked = new GameEvent();
 		public static GameEvent<Clickable> TrashClicked = new GameEvent<Clickable>();
 		public static GameEvent PutDownTool = new GameEvent();
-		public static GameEvent AddedTrash = new GameEvent();
 		public static GameEvent<Clickable> AddedIngredient = new GameEvent<Clickable>();
-		public static GameEvent PickupTrash = new GameEvent();
 		public static GameEvent CakeWrongBake = new GameEvent();
 		public static GameEvent CakeCorrectBake = new GameEvent();
 		
