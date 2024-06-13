@@ -2,17 +2,18 @@
 
 namespace BakingGame
 {
-	public class ClickableBowl : ClickableInteraction
+	public class ClickableTrash : ClickableInteraction
 	{
 		public override void OnClick(Clickable heldTool, Clickable heldIngredient)
 		{
 			if (heldIngredient == Clickable.None)
 			{
-				//Clicked bowl with empty hands
+				//Clicked trash with empty hands
+				//Easteregg when??
 				return;
 			}
 			
-			GameEvent.BowlClicked.Dispatch();
+			GameEvent.TrashClicked.Dispatch();
 		}
 	}
 }

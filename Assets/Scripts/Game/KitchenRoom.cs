@@ -25,11 +25,18 @@ namespace BakingGame
 			GameEvent.PickupIngredient.AddListener(HandleIngredientPickup);
 			GameEvent.PutDownTool.AddListener(HandlePutDownTool);
 			GameEvent.BowlClicked.AddListener(HandleBowlClicked);
+			GameEvent.TrashClicked.AddListener(HandleTrashClicked);
 
 			Recipe randomRecipe = RecipeMap.GenerateRandomRecipe();
 			_currentCake = new Cake();
 			_currentCake.SetRecipe(randomRecipe);
 			RecipeText.SetRecipeText(randomRecipe);
+		}
+
+		void HandleTrashClicked()
+		{
+			_currentlyHeldIngredient = Clickable.None;
+			HeldClickable.SetFilledIngredient(_currentlyHeldTool, _currentlyHeldIngredient);
 		}
 
 		void HandleBowlClicked()
