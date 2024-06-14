@@ -71,17 +71,17 @@ namespace BakingGame
 				//Always berate, never back down. Make your enemies fear your very existence!!
 				return true;
 				
-				if (_increasing)
-				{
-					return false;
-				}
-				
-				if (_showTimeRemaining < -3f)
-				{
-					return Random.value > 0.2f;
-				}
-				
-				return Random.value > 0.8f;
+				// if (_increasing)
+				// {
+				// 	return false;
+				// }
+				//
+				// if (_showTimeRemaining < -3f)
+				// {
+				// 	return Random.value > 0.2f;
+				// }
+				//
+				// return Random.value > 0.8f;
 			}
 		}
 
@@ -468,7 +468,7 @@ namespace BakingGame
 			{
 				case TutorialIntro: return "Oh. It's you. The so-called baker?";
 				case TutorialRecipe: return "Ugh fine. Here is your recipe";
-				case TutorialTools: return "Use these measuring cups or something";
+				case TutorialTools: return "Use these measuring cups or whatever";
 				case TutorialTellDone: return "Let me know when you THINK are done";
 				case TutorialFinal: return "Good luck, I guess..";
 			}
