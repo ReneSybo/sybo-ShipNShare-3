@@ -436,8 +436,26 @@ namespace BakingGame
 				if (_tutorialIndex <= TutorialFinal)
 				{
 					SetText(TextFromTutorialIndex());
+					TryShowGlow();
+					
 					_showTimeRemaining *= 2;
 				}
+			}
+		}
+
+		void TryShowGlow()
+		{
+			switch (_tutorialIndex)
+			{
+				case TutorialRecipe:
+					GameEvent.ShowGlow.Dispatch(GlowType.Recipe);
+					break;
+				case TutorialTools:
+					GameEvent.ShowGlow.Dispatch(GlowType.Cups);
+					break;
+				case TutorialTellDone:
+					GameEvent.ShowGlow.Dispatch(GlowType.Done);
+					break;
 			}
 		}
 
@@ -445,10 +463,10 @@ namespace BakingGame
 		{
 			switch (_tutorialIndex)
 			{
-				case TutorialIntro: return "Wait, you are supposed to be a baker?";
-				case TutorialRecipe: return "Fine.. Check the recipe on your left";
-				case TutorialTools: return "You do know how these cup sizes work, yeah?";
-				case TutorialTellDone: return "Let me know when you are done";
+				case TutorialIntro: return "Oh. It's you. The so-called baker?";
+				case TutorialRecipe: return "Ugh fine. Here is your recipe";
+				case TutorialTools: return "Use these measuring cups or something";
+				case TutorialTellDone: return "Let me know when you THINK are done";
 				case TutorialFinal: return "Good luck, I guess..";
 			}
 
