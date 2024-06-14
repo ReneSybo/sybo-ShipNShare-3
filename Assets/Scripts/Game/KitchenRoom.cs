@@ -12,6 +12,7 @@ namespace BakingGame
 		Clickable _currentlyHeldIngredient = Clickable.None;
 
 		Cake _currentCake;
+		bool _hasSeenBakeButton = false;
 		
 		public Button BakeButton;
 		public RecipeMap RecipeMap;
@@ -30,7 +31,28 @@ namespace BakingGame
 			GameEvent.TrashClicked.AddListener(HandleTrashClicked);
 			GameEvent.GameStart.AddListener(HandleStartGame);
 			GameEvent.GameReset.AddListener(HandleStartReset);
+			GameEvent.ShowBakeButton.AddListener(HandleShowBakeButton);
+			GameEvent.AddedIngredient.AddListener(HandleAddedIngredient);
 			BakeButton.onClick.AddListener(HandleBakeClicked);
+		}
+
+		void HandleAddedIngredient(Clickable obj)
+		{
+			HandleShowBakeButton();
+		}
+
+		void HandleShowBakeButton()
+		{
+			_hasSeenBakeButton = true;
+			BakeButton.gameObject.SetActive(true);
+		}
+
+		void OnEnable()
+		{
+			if (!_hasSeenBakeButton)
+			{
+				BakeButton.gameObject.SetActive(false);
+			}
 		}
 
 		void Start()
@@ -40,6 +62,7 @@ namespace BakingGame
 
 		void HandleStartReset()
 		{
+			_hasSeenBakeButton = false;
 			HandlePutDownTool();
 			
 			ClickableMap.Instance[Clickable.Tool_Teaspoon].ResetPosition();

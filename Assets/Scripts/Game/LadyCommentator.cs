@@ -479,6 +479,7 @@ namespace BakingGame
 					break;
 				case TutorialTellDone:
 					GameEvent.ShowGlow.Dispatch(GlowType.Done);
+					GameEvent.ShowBakeButton.Dispatch();
 					break;
 			}
 		}

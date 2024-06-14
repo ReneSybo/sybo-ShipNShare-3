@@ -18,6 +18,7 @@ namespace Misc
 		public static GameEvent<GlowType> ShowGlow = new GameEvent<GlowType>();
 		public static GameEvent CakeWrongBake = new GameEvent();
 		public static GameEvent CakeCorrectBake = new GameEvent();
+		public static GameEvent ShowBakeButton = new GameEvent();
 		
 		public static GameEvent GameReset = new GameEvent();
 		public static GameEvent GameStart = new GameEvent();
