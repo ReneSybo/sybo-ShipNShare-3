@@ -1,12 +1,16 @@
 ﻿using Misc;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace BakingGame
 {
 	public class LadyCommentator : MonoBehaviour
 	{
+		public Sprite[] LadySprites;
+		public Image LadyImage;
+		
 		public TMP_Text Textfield;
 		public CanvasGroup CanvasGroup;
 		public float FadeSpeed;
@@ -412,6 +416,12 @@ namespace BakingGame
 			Textfield.text = text;
 			_increasing = true;
 			_currentAlpha = 0f;
+
+			if (Random.value > 0.2f)
+			{
+				Sprite nextSprite = LadySprites[(int)(LadySprites.Length * Random.value)];
+				LadyImage.sprite = nextSprite;
+			}
 		}
 
 		void Update()

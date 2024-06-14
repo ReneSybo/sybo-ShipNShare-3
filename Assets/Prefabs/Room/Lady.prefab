@@ -168,8 +168,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.8666, y: -87.49104}
-  m_SizeDelta: {x: 271.9461, y: 324.0179}
+  m_AnchoredPosition: {x: 29, y: -75}
+  m_SizeDelta: {x: 309.2769, y: 383.5454}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1729822137264025310
 CanvasRenderer:
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0c2460464babf73409a8c7768056029f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b12b32d7a2da35141ba5ac582296dfcb, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -259,6 +259,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72825ef7702f44eebd952b2582ad4a8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LadySprites:
+  - {fileID: 21300000, guid: 11080eed6d767074dbb69231a8436964, type: 3}
+  - {fileID: 21300000, guid: d549d24668485764699bd99bcce9f6c2, type: 3}
+  - {fileID: 21300000, guid: 295edc9dd153e9141938bf20fa74c8a0, type: 3}
+  - {fileID: 21300000, guid: b12b32d7a2da35141ba5ac582296dfcb, type: 3}
+  LadyImage: {fileID: 1478318768413055453}
   Textfield: {fileID: 4293254006066177446}
   CanvasGroup: {fileID: 6882965319248977215}
   FadeSpeed: 0.8
