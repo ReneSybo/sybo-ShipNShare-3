@@ -109,10 +109,11 @@ namespace BakingGame
 			string localizedName = RecipeText.ToLocalizedName(ingredient);
 			string[] randomResponses = 
 			{
-				"Well, that's one way to ruin it beyond repair?",
-				"Just when I thought it couldn't get worse",
+				"Well, that's one way to ruin it?",
+				"Just when I thought you couldn't get any worse",
 				"Congratulations, you've created the world's first garbage cake",
 				"Why stop there? Just throw the whole trash can in",
+				"Might as well, you can't fix it anyway",
 				$"Wow, just wow. You’re actually adding {localizedName}?",
 			};
 
@@ -128,12 +129,12 @@ namespace BakingGame
 				"Oh, sure, because that’s definitely going to help",
 				"Great. Another disaster in the making",
 				"Aaaaaaand it's ruined",
-				"Just dump everything in and hope for the best, huh?",
-				"This cake is so doomed...",
-				"Are you even reading the recipe or just guessing?",
-				"You think that’s the right amount? Adorable",
+				"You just dump everything in and hope for the best, huh?",
+				"This cake is so doomed",
+				"Are you even reading the recipe or are you just guessing?",
+				"Oh, you think that’s the right amount? That's hilarious",
 				"Sure, add that. Not like it can get any worse",
-				"Is this a baking show or a comedy act?",
+				"Is this a baking show or a comedy sketch?",
 				"Is this a cake or an experiment gone wrong?",
 				"Fantastic. Just when I thought it couldn't get worse?",
 			};
@@ -220,7 +221,7 @@ namespace BakingGame
 			{
 				$"{localizedName}? Because you think you’re fancy?",
 				$"Oh, {localizedName}. Trying to cover up the mess?",
-				$"Adding {localizedName}? Desperate times, huh",
+				$"Adding {localizedName}? Desperate times, huh?",
 			};
 
 			return RandomResponseFrom(randomResponses);
@@ -244,7 +245,7 @@ namespace BakingGame
 			{
 				$"{localizedName}? Like you even know what it does",
 				"Sure, add that. It’s not going to help",
-				$"Ah, {localizedName}. You might as well be guessing",
+				$"Ah, {localizedName}. You're definitely just guessing",
 			};
 
 			return RandomResponseFrom(randomResponses);
@@ -255,8 +256,8 @@ namespace BakingGame
 			string[] randomResponses = 
 			{
 				$"{localizedName}? More like, 'Better not mess this up'",
-				"Great, more fat to this dumpster fire of a cake",
-				"Don’t make it even greasier than it’s going to be!",
+				"You don't look like you need more fat in your cake",
+				"Ugh. You're using your hands? That is so disgusting",
 			};
 
 			return RandomResponseFrom(randomResponses);
@@ -268,8 +269,7 @@ namespace BakingGame
 			{
 				$"Adding {localizedName} now? Good luck with that",
 				$"{localizedName}? Just what this disaster needed",
-				"I bet the cow would be ashamed of having a part of this",
-				"Maybe you should cry over this?",
+				"I bet the cow would cry over this",
 			};
 
 			return RandomResponseFrom(randomResponses);
@@ -281,7 +281,8 @@ namespace BakingGame
 			{
 				"Like that’ll save your recipe",
 				$"Crack those {localizedName} and probably your hopes of success too?",
-				"I just know you will get shells in the mix..",
+				"I just know you will get shells in the mix",
+				"This is not an omelet, you know that right?",
 			};
 
 			return RandomResponseFrom(randomResponses);
@@ -293,7 +294,7 @@ namespace BakingGame
 			{
 				$"{localizedName}? Because this cake definitely needs more sweetness",
 				"Sweetening up your mistakes, are we?",
-				"Try not to spill it everywhere. Oh wait, you will",
+				"Are you trying to give people diabetes?",
 			};
 
 			return RandomResponseFrom(randomResponses);
@@ -305,7 +306,8 @@ namespace BakingGame
 			{
 				$"{localizedName}? Let’s see how you mess this up",
 				"Oh great, another potential disaster in your hands",
-				"Be careful with that. Not that it’ll help",
+				"Just spilling it all over? Not like it'll save your cake anyways",
+				"Better watch out for clumps, clumpsy!",
 			};
 
 			return RandomResponseFrom(randomResponses);
@@ -405,8 +407,8 @@ namespace BakingGame
 				"Perfect, just throw it all away. That’ll fix everything", 
 				"Finally, something you’re good at: wasting food",
 				"Out with the trash, just like your baking skills",
-				"Getting rid of evidence, are we?",
-				"Why not just throw the whole cake in there while you’re at it?",
+				"Getting rid of the evidence, are we?",
+				"Why not just throw the whole bowl in there while you’re at it?",
 			};
 
 			return RandomResponseFrom(randomResponses);
@@ -488,11 +490,11 @@ namespace BakingGame
 		{
 			switch (_tutorialIndex)
 			{
-				case TutorialIntro: return "Oh. It's you. The so-called baker?";
-				case TutorialRecipe: return "Ugh fine. Here is your recipe";
-				case TutorialTools: return "Use these measuring cups or whatever";
-				case TutorialTellDone: return "Let me know when you THINK are done";
-				case TutorialFinal: return "Good luck, I guess..";
+				case TutorialIntro: return "Oh, it's you. The so-called baker?";
+				case TutorialRecipe: return "Ugh fine. Here is your recipe. Do you know how to read?";
+				case TutorialTools: return "You can use these measuring cups, if you know how";
+				case TutorialTellDone: return "Let me know when you THINK you are done";
+				case TutorialFinal: return "Good luck, you're going to need it";
 			}
 
 			return string.Empty;
