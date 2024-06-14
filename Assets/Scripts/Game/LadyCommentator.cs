@@ -68,6 +68,9 @@ namespace BakingGame
 		{
 			get
 			{
+				//Always berate, never back down. Make your enemies fear your very existence!!
+				return true;
+				
 				if (_increasing)
 				{
 					return false;
