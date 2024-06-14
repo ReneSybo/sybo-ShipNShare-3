@@ -42,7 +42,7 @@ namespace BakingGame
 				case Clickable.Ingredient_Butter:
 					return "Butter";
 				case Clickable.Ingredient_BakingSoda:
-					return "Baking Powder";
+					return "Soda";
 				case Clickable.Ingredient_Trash:
 					return "Trash";
 			}
