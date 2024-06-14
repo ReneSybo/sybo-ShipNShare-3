@@ -127,9 +127,15 @@ namespace BakingGame
 				$"Are you seriously adding more {localizedName}?",
 				"Oh, sure, because that’s definitely going to help",
 				"Great. Another disaster in the making",
-				"Congratulations, you just ruined it",
+				"Aaaaaaand it's ruined",
 				"Just dump everything in and hope for the best, huh?",
 				"This cake is so doomed...",
+				"Are you even reading the recipe or just guessing?",
+				"You think that’s the right amount? Adorable",
+				"Sure, add that. Not like it can get any worse",
+				"Is this a baking show or a comedy act?",
+				"Is this a cake or an experiment gone wrong?",
+				"Fantastic. Just when I thought it couldn't get worse?",
 			};
 
 			return RandomResponseFrom(randomResponses);
@@ -188,9 +194,9 @@ namespace BakingGame
 			{
 				$"Seriously? You're picking up {localizedName} now",
 				"Oh great, you’ve resorted to dumpster diving",
-				"Congratulations, you’ve officially lost it",
-				"Wonderful, just add garbage to your garbage cake",
-				$"{localizedName}, huh? Finally, something that matches your skills",
+				"You’ve officially lost it",
+				$"Wonderful, just add {localizedName} to your garbage cake",
+				$"{localizedName}? Finally, something that matches your skills",
 			};
 
 			return RandomResponseFrom(randomResponses);
@@ -213,7 +219,7 @@ namespace BakingGame
 			string[] randomResponses = 
 			{
 				$"{localizedName}? Because you think you’re fancy?",
-				$"{localizedName} won’t fix this disaster",
+				$"Oh, {localizedName}. Trying to cover up the mess?",
 				$"Adding {localizedName}? Desperate times, huh",
 			};
 
@@ -238,7 +244,7 @@ namespace BakingGame
 			{
 				$"{localizedName}? Like you even know what it does",
 				"Sure, add that. It’s not going to help",
-				$"Oh, {localizedName}. You might as well be guessing",
+				$"Ah, {localizedName}. You might as well be guessing",
 			};
 
 			return RandomResponseFrom(randomResponses);
@@ -249,7 +255,7 @@ namespace BakingGame
 			string[] randomResponses = 
 			{
 				$"{localizedName}? More like, 'Better not mess this up'",
-				$"{localizedName}. Great, more fat to the fire",
+				"Great, more fat to this dumpster fire of a cake",
 				"Don’t make it even greasier than it’s going to be!",
 			};
 
@@ -263,6 +269,7 @@ namespace BakingGame
 				$"Adding {localizedName} now? Good luck with that",
 				$"{localizedName}? Just what this disaster needed",
 				"I bet the cow would be ashamed of having a part of this",
+				"Maybe you should cry over this?",
 			};
 
 			return RandomResponseFrom(randomResponses);

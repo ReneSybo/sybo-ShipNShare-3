@@ -8,12 +8,7 @@ namespace BakingGame
 	[CreateAssetMenu(fileName = "RecipeMap", menuName = "KITCHEN/RecipeMap", order = 1)]
 	public class RecipeMap : ScriptableObject
 	{
-		public Recipe[] Recipes;
-
-		public Recipe GetRandomRecipe()
-		{
-			return Recipes[(int)(Random.value * Recipes.Length)];
-		}
+		public static Recipe CurrentRecipe;
 		
 		public Recipe GenerateRandomRecipe()
 		{
@@ -35,7 +30,8 @@ namespace BakingGame
 				};
 				recipe.Ingredients[i] = amount;
 			}
-			
+
+			CurrentRecipe = recipe;
 			return recipe;
 		}
 

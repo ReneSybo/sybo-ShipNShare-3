@@ -63,6 +63,11 @@ namespace BakingGame
 			{
 				return $"{amount} stick";
 			}
+			
+			if (ingredient == Clickable.Ingredient_Trash)
+			{
+				return $"{amount} handful";
+			}
 
 			float cups = amount / 100f;
 			if (amount % EnumUtils.AmountWhole == 0)
