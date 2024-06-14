@@ -138,6 +138,8 @@ namespace BakingGame
 				return;
 			}
 			
+			_inTutorial = false;
+			
 			string localizedName = RecipeText.ToLocalizedName(ingredient);
 
 			switch (ingredient)
@@ -304,6 +306,8 @@ namespace BakingGame
 			{
 				return;
 			}
+
+			_inTutorial = false;
 
 			if (!ShouldShow)
 			{

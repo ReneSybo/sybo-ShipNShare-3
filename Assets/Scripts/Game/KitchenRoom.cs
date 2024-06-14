@@ -1,4 +1,5 @@
-﻿using Misc;
+﻿using System;
+using Misc;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,7 +31,10 @@ namespace BakingGame
 			GameEvent.GameStart.AddListener(HandleStartGame);
 			GameEvent.GameReset.AddListener(HandleStartReset);
 			BakeButton.onClick.AddListener(HandleBakeClicked);
+		}
 
+		void Start()
+		{
 			HandleStartGame();
 		}
 
