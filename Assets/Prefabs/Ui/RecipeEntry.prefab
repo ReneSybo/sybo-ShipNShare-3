@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Text: {fileID: 5184727955338303893}
+  Toggle: {fileID: 629728124759399124}
 --- !u!1 &2325548578663603224
 GameObject:
   m_ObjectHideFlags: 0

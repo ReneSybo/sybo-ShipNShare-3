@@ -33,8 +33,6 @@ namespace BakingGame
 		
 		public void AddIngredient(Clickable tool, Clickable ingredient)
 		{
-			Debug.Log($"Used {tool} to add {ingredient}");
-
 			if (ingredient == Clickable.Ingredient_Trash)
 			{
 				AddTo(ingredient, 1);
@@ -52,7 +50,6 @@ namespace BakingGame
 
 				if (remainingRequirement < 0)
 				{
-					Debug.Log("BUT IT WAS TOO MUCH!!!");
 					GameEvent.AddedTooMuchIngredient.Dispatch(ingredient);
 					// GameEvent.GameLose.Dispatch();
 					return;
@@ -60,7 +57,6 @@ namespace BakingGame
 			}
 			else
 			{
-				Debug.Log("BUT IT WAS NOT NEEDED!!!");
 				GameEvent.AddedWrongIngredient.Dispatch(ingredient);
 				// GameEvent.GameLose.Dispatch();
 				return;
